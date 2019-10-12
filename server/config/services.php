@@ -34,4 +34,8 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'search' => [
+        'enabled' => env('ELASTICSEARCH_ENABLED', false),
+        'hosts' => explode(',', env('ELASTICSEARCH_HOSTS')),
+    ],
 ];

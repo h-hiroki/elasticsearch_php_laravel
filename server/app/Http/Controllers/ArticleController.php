@@ -30,4 +30,17 @@ class ArticleController extends Controller
 
         return view('article', compact('articles'));
     }
+
+    /**
+     * フリーワード検索
+     */
+    public function search(Request $request)
+    {
+        $search_word = $request->q;
+        $elasticsearch_repository = app('App\Articles\ElasticsearchRepository');
+        $articles = $elasticsearch_repository->search($search_word);
+        dd($articles);
+        return view('article', compact('articles'));
+
+    }
 }
