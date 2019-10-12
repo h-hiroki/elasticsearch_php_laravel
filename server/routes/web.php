@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Auth::routes();
+
+Route::get('/', 'ArticleController@index')->name('article');
+
+// Route::get('/search', 'ArticleController@searchByEloquent')->name('article_search');
+Route::get('/search', 'ArticleController@search')->name('article_search');
